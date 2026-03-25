@@ -14,7 +14,7 @@ app.post('/webhook', (req, res) => {
       target: [
         {
           type: "phone",
-          number: `+55${numeroDestino}`, // ou tratar formato
+          number: `${numeroDestino}`, // ou tratar formato
           trunk: "NVOIP"
         }
       ]
