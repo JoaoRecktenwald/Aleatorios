@@ -23,16 +23,17 @@ function formatarNumero(numero) {
 app.post('/webhook', (req, res) => {
   console.log("📞 Incoming call:", req.body);
 
-  const numeroDestino = formatarNumero(req.body.to);
+  let numeroDestino = req.body.to;
 
-  console.log("📲 Ligando para:", numeroDestino);
+  // 🔥 NÃO adiciona +55 agora
+  numeroDestino = numeroDestino.replace(/\D/g, '');
+
+  console.log("📲 Testando número:", numeroDestino);
 
   res.json([
     {
       verb: "dial",
-
       callerId: "138943002",
-
       target: [
         {
           type: "phone",
