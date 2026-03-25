@@ -3,17 +3,21 @@ const app = express();
 
 app.use(express.json());
 
-// Endpoint que o jambonz vai chamar
 app.post('/webhook', (req, res) => {
   console.log("Incoming call:", req.body);
+
+  const numeroDestino = req.body.to;
 
   res.json([
     {
       verb: "dial",
-      target: {
-        type: "phone",
-        number: "+551152866333" // TROCA PELO SEU NÚMERO
-      }
+      target: [
+        {
+          type: "phone",
+          number: `+55${numeroDestino}`, // ou tratar formato
+          trunk: "NVOIP"
+        }
+      ]
     }
   ]);
 });
