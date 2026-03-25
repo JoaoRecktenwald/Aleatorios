@@ -23,12 +23,12 @@ function formatarNumero(numero) {
 app.post('/webhook', (req, res) => {
   console.log("📞 Incoming call:", req.body);
 
-  let numeroDestino = req.body.to.replace(/\D/g, '');
+  let numeroDestino = req.body.to;
 
-  // 🔥 TESTE COM PREFIXO 0
-  numeroDestino = "0" + numeroDestino;
+  // 🔥 NÃO adiciona +55 agora
+  numeroDestino = numeroDestino.replace(/\D/g, '');
 
-  console.log("📲 Discando:", numeroDestino);
+  console.log("📲 Testando número:", numeroDestino);
 
   res.json([
     {
