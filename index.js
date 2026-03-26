@@ -40,7 +40,7 @@ app.post('/webhook', (req, res) => {
         {
           type: "phone",
           number: numeroDestino,
-          trunk: "NVOIP"
+          trunk: "SIP_DirectCall"
         }
       ]
     }
